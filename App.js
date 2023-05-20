@@ -1,11 +1,21 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import AppNavigator from './src/StackNavigator';
+import { LoginModal } from './src/modals/LoginModal';
 
 export default function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {!loggedIn && <LoginModal modalVisible={!loggedIn} handleLogin={handleLogin} />}
+      <StatusBar />
+      <AppNavigator />
     </View>
   );
 }
@@ -14,7 +24,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
