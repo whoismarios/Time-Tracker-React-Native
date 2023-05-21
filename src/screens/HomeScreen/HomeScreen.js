@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import {styles} from './HomeScreenStyleSheet'
 
 const HomeScreen = () => {
 
@@ -7,7 +8,7 @@ const HomeScreen = () => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+      <Text style={styles.test}>Home Screen</Text>
     </View>
   );
 };

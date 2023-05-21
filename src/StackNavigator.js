@@ -3,27 +3,12 @@ import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from './screens/HomeScreen/HomeScreen';
+import WorkScreen from './screens/WorkScreen/WorkScreen';
+import StatisticsScreen from './screens/StatisticsScreen/StatisticsScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
-const HomeScreen = () => {
-  return (
-    <Text>Home Screen</Text>
-  );
-};
-
-const WorkScreen = () => {
-  return (
-    <Text>Work Screen</Text>
-  );
-};
-
-const StatisticsScreen = () => {
-  return (
-    <Text>Statistics Screen</Text>
-  );
-};
 
 const MainStack = () => {
   return (
