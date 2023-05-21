@@ -41,7 +41,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={MainStack} />
+        <Tab.Screen name="Main" component={MainStack} />
         <Tab.Screen name="Work" component={WorkScreen} />
         <Tab.Screen name="Statistics" component={StatisticsScreen} />
       </Tab.Navigator>

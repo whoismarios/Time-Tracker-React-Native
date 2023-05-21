@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import AppNavigator from './src/StackNavigator';
-import { LoginModal } from './src/modals/LoginModal';
+import { LoginModal } from './src/modals/LoginModal/LoginModal';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
