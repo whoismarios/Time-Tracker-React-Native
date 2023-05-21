@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import AppNavigator from './src/StackNavigator';
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {!loggedIn && <LoginModal modalVisible={!loggedIn} handleLogin={handleLogin} />}
-      <StatusBar />
+      <StatusBar style='dark' />
       <AppNavigator />
     </View>
   );

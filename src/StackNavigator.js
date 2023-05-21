@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -18,7 +18,7 @@ const MainStack = () => {
         headerShown: false, // Hide the top navigation bar
       }}
     >
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} style={{backgroundColor:'black'}}/>
     </Stack.Navigator>
   );
 };
@@ -26,7 +26,7 @@ const MainStack = () => {
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      <Tab.Navigator 
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
             let iconName;
@@ -39,18 +39,51 @@ const AppNavigator = () => {
               iconName = 'pie-chart';
             }
 
-            return <Icon name={iconName} size={size} color={color} />;
+            return <Icon name={iconName} size={50} color={color} style={{height:50}} />;
           },
           tabBarActiveTintColor: 'orangered',
           tabBarInactiveTintColor: 'rgb(0, 143, 209)',
           tabBarStyle: {
             display: 'flex',
+            backgroundColor:'black',
+            
+            height:100,
+            
           },
         })}
       >
-        <Tab.Screen name="Main" component={MainStack} />
-        <Tab.Screen name="Work" component={WorkScreen} />
-        <Tab.Screen name="Statistics" component={StatisticsScreen} />
+        <Tab.Screen
+          name="Main"
+          component={MainStack}
+          options={{
+            headerStyle: {
+              backgroundColor: 'transparent',
+            },
+            headerTintColor: 'black',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            tabBarLabel: 'Home',
+          }}
+        />
+        <Tab.Screen name="Work" component={WorkScreen} options={{
+          headerStyle: {
+            backgroundColor: 'transparent', 
+          },
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            fontWeight: 'bold', 
+          },
+        }}/>
+        <Tab.Screen name="Statistics" component={StatisticsScreen} options={{
+          headerStyle: {
+            backgroundColor: 'transparent',
+          },
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            fontWeight: 'bold', 
+          },
+        }}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
