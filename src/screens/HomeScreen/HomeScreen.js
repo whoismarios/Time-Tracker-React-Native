@@ -1,7 +1,6 @@
 import React from 'react';
 import { ImageBackground, View, Text } from 'react-native';
 import { styles } from './HomeScreenStyleSheet';
-import StartShift from './../../components/StartShift/StartShift';
 
 const HomeScreen = () => {
   return (
@@ -11,7 +10,7 @@ const HomeScreen = () => {
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
-        <StartShift />
+      <Text style={styles.test}>Home Screen</Text>
 
       </View>
     </ImageBackground>

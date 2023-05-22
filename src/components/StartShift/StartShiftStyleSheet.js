@@ -27,5 +27,19 @@ export const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontSize: 24
+    },
+    endShift:{
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 24
+    },
+    endShiftButton:{
+        marginTop: 30,
+        padding:10,
+        color:'white',
+        backgroundColor:'red',
+        width: '50%',
+        marginLeft: '25%',
+        borderRadius: 10,
     }
 });

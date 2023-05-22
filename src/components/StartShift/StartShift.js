@@ -12,6 +12,49 @@ const StartShift = () => {
     const [currentTime, setCurrentTime] = useState('');
 
     const [date, setDate] = useState(new Date());
+
+    const [shiftStarted, changeShiftStatus] = useState(false);
+
+    const onShiftStarted = () => {
+      changeShiftStatus(true);
+      console.log("Shift Started");
+    }
+
+    const onShiftEnd = () => {
+
+      //API CALL PUT
+      //UPDATE Shifts SET endDate=':endDate' WHERE id=':id' 
+
+
+      changeShiftStatus(false);
+      console.log("Shift completed");
+    }
+
+    useEffect(() => {
+      const isShiftActive = () => {
+        
+
+        const personId = 123;
+
+        fetch(`http://localhost:8080/shifts/${personId}/active`)
+          .then(response => response.json())
+          .then(data => {
+            if(data === 0){
+              changeShiftStatus(false);
+              console.log("No shift open");
+              console.log(data)
+            }else {
+              changeShiftStatus(true)
+              console.log("Shift available")
+              console.log(data)
+            }
+          })
+          .catch(error => {
+            console.error("Error", error)
+          })
+      }
+      isShiftActive();
+    },[]);
    
     const onChange = (event, selectedDate) => {
       const currentDate = selectedDate || date;
@@ -49,8 +92,12 @@ const StartShift = () => {
                 onChange={handleDateChange}
                 />
 
-            <Pressable onPress={() => console.log("Clicked")}style={styles.button}>
+            <Pressable disabled={shiftStarted} onPress={onShiftStarted}style={styles.button}>
                 <Text style={styles.buttonText}>Start Shift</Text>
+            </Pressable>
+
+            <Pressable disabled={!shiftStarted} onPress={onShiftEnd}style={styles.endShiftButton}>
+                <Text style={styles.endShift}>End Shift</Text>
             </Pressable>
         </View>
     );
