@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground } from 'react-native';
-import {styles} from './StatisticsScreenStyleSheet'
+import {styles} from './StatisticsScreenStyleSheet';
+import AllShifts from './../../components/AllShifts/AllShifts'
 
 const StatisticsScreen = () => {
   return (
@@ -10,6 +11,9 @@ const StatisticsScreen = () => {
             >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text style={styles.test}>Statistics Screen</Text>
+
+        <AllShifts />
+
       </View>
     </ImageBackground>
   );
